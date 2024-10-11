@@ -67,6 +67,8 @@ const ShopContextProvider = (props) => {
     return totalAmount;
   };
 
+  // -------------------- Website const values and methods ---------------
+
   const value = {
     products,
     currency,
