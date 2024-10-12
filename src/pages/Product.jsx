@@ -94,6 +94,28 @@ const Product = () => {
           </div>
         </div>
       </div>
+      {/* ------------------------ Description and Review Section -------------------------- */}
+      <div className="mt-20">
+        <div className="flex">
+          <b className="border px-5 py-3 text:sm">Description</b>
+          <p className="border px-5 py-3 text-sm">Reviews (122)</p>
+        </div>
+        <div className="flex flex-col gap-4 border px-6 py-6 text-sm text-gray-500">
+          <p>
+            Elevate your wardrobe with our Premium Cotton Oversized Hoodie.
+            Crafted from 100% organic cotton, this hoodie combines comfort and
+            style for a perfect casual look. Its relaxed fit, soft-touch fabric,
+            and ribbed cuffs make it a cozy essential, whether you're lounging
+            at home or heading out for the day.
+          </p>
+          <p>
+            Available in multiple colors, this hoodie is designed for versatile
+            layering, pairing easily with jeans, leggings, or joggers. With a
+            front kangaroo pocket and adjustable drawstring hood, it offers both
+            functionality and a trendy, laid-back vibe.
+          </p>
+        </div>
+      </div>
       {/* ---------------------------- Display related products ------------------------------ */}
       <RelatedProducts
         category={productData.category}
