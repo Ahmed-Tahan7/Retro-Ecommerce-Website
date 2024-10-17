@@ -1,5 +1,6 @@
 import React from "react";
 import Title from "../components/Title";
+import CartTotal from "../components/CartTotal";
 
 const PlaceOrder = () => {
   return (
@@ -60,6 +61,12 @@ const PlaceOrder = () => {
           type="number"
           placeholder="Phone"
         />
+      </div>
+      {/* ----------------------------- Right Side ------------------------------*/}
+      <div className="mt-8">
+        <div className="mt-8 min-w-80">
+          <CartTotal />
+        </div>
       </div>
     </div>
   );
