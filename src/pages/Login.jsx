@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { assets } from "../assets/assets";
 
 const Login = () => {
   const [currentState, setCurrentState] = useState("Sign Up");
@@ -53,6 +54,32 @@ const Login = () => {
             Login Here
           </p>
         )}
+      </div>
+      <div className="inline-block">
+        {/* -------------------------- Login/Sign Up switch logic ---------------------------- */}
+        <button className="bg-dark-goldenrod text-white font-light p-7 py-2 mt-4 mr-10 rounded-full">
+          {currentState === "Login" ? "Sign In" : "Sign Up"}
+        </button>
+        <button className="bg-black text-white font-light p-7 py-2 mt-4 rounded-full">
+          {currentState === "Login" ? (
+            <>
+              {/* --------------------------- Google Sign In/Sign Up buttons ---------------------------- */}
+              Sign In with
+              <img
+                src={assets.google}
+                className="w-4 h-4 ml-2 mb-1 inline-block"
+              />
+            </>
+          ) : (
+            <>
+              Sign Up with
+              <img
+                src={assets.google}
+                className="w-4 h-4 ml-2 mb-1 inline-block"
+              />
+            </>
+          )}
+        </button>
       </div>
     </form>
   );
