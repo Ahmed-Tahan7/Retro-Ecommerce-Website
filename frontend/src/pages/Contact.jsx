@@ -3,16 +3,6 @@ import Title from "../components/Title";
 import NewsletterBox from "../components/NewsletterBox";
 import { GoogleMap, LoadScript } from "@react-google-maps/api";
 
-const containerStyle = {
-  width: "630px",
-  height: "400px",
-};
-
-const center = {
-  lat: -3.745,
-  lng: -38.523,
-};
-
 const Contact = () => {
   return (
     <div>
@@ -21,14 +11,16 @@ const Contact = () => {
       </div>
       <div className="my-10 flex flex-col justify-center md:flex-row gap-10 mb-28">
         {/* ---------------------------- Google Maps API integration -------------------------- */}
-        <div className="border w-1/2">
-          <LoadScript googleMapsApiKey="API_KEY">
-            <GoogleMap
-              mapContainerStyle={containerStyle}
-              center={center}
-              zoom={10}
-            />
-          </LoadScript>
+        <div className="border w-full md:w-1/2">
+          <div className="relative h-0 pb-[56.25%] overflow-hidden">
+            <LoadScript googleMapsApiKey="API_KEY">
+              <GoogleMap
+                mapContainerClassName="absolute top-0 left-0 w-full h-full"
+                center={{ lat: -3.745, lng: -38.523 }}
+                zoom={10}
+              />
+            </LoadScript>
+          </div>
         </div>
         <div className="flex flex-col justify-center items-start gap-6">
           {/* -------------------------- Contact Info ---------------------------- */}
