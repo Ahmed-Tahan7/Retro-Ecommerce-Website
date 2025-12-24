@@ -2,7 +2,6 @@ import { createContext, useEffect, useState } from "react";
 import axios from "axios";
 import { toast } from "react-toastify";
 import { useNavigate } from "react-router-dom";
-import { use } from "react";
 
 export const ShopContext = createContext();
 const ShopContextProvider = (props) => {
@@ -34,9 +33,13 @@ const ShopContextProvider = (props) => {
     }
     setCartItems(cartData);
 
-    if(token){
+    if (token) {
       try {
-        await axios.post(backendURL + "/api/cart/add", {itemId, size}, {headers: {token}});
+        await axios.post(
+          backendURL + "/api/cart/add",
+          { itemId, size },
+          { headers: { token } }
+        );
       } catch (error) {
         toast.error(error.message);
       }
@@ -63,9 +66,13 @@ const ShopContextProvider = (props) => {
 
     setCartItems(cartData);
 
-    if(token){
+    if (token) {
       try {
-        await axios.post(backendURL + '/api/cart/update', {itemId, size, quantity}, {headers: {token}});
+        await axios.post(
+          backendURL + "/api/cart/update",
+          { itemId, size, quantity },
+          { headers: { token } }
+        );
       } catch (error) {
         console.log(error);
         toast.error(error.message);
@@ -104,22 +111,26 @@ const ShopContextProvider = (props) => {
 
   const getUserCart = async (token) => {
     try {
-      const response = await axios.post(backendURL + '/api/cart/get', {}, {headers: {token}});
-      if(response.data.success){
+      const response = await axios.post(
+        backendURL + "/api/cart/get",
+        {},
+        { headers: { token } }
+      );
+      if (response.data.success) {
         setCartItems(response.data.cartData);
       }
     } catch (error) {
       console.log(error);
       toast.error(error.message);
     }
-  }
+  };
 
   useEffect(() => {
     getProductsData();
   }, []);
 
   useEffect(() => {
-    if(!token && localStorage.getItem("token")){
+    if (!token && localStorage.getItem("token")) {
       setToken(localStorage.getItem("token"));
       getUserCart(localStorage.getItem("token"));
     }
@@ -133,6 +144,7 @@ const ShopContextProvider = (props) => {
     delivery_fee,
     search,
     setSearch,
+    setCartItems,
     showSearch,
     setShowSearch,
     cartItems,
